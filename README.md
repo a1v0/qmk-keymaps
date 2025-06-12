@@ -23,4 +23,5 @@ Future functionality/layers, to be added once I gain more experience:
 - Fn-style keys, incl. brightness, volume, play/pause/skip
 - Caps lock, num lock
 - Home, end, pg up/down
-- Windows key, alt
+- Windows key (`KC_LGUI`)
+- no OLED backlighting (or, perhaps, only by keyboard activation, through a colour combo.) If any, then just white
