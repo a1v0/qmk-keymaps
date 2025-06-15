@@ -9,7 +9,9 @@ This repo contains keymaps for my Lily58 keyboard, in the format required by [QM
 
 ## Flashing instructions
 
-First, the keymap needs to be compiled via QMK WSL. Run this command:
+First, the keymap needs to be compiled via QMK WSL. Copy the keymap file into the relevant location (e.g. `\\wsl.localhost\QMK\home\qmk\qmk_firmware\keyboards\lily58\keymaps\a1v0`).
+
+Then, in QMK WSL, enter the `qmk_firmware` folder and run this command:
 
 ```bash
 qmk compile -kb lily58 -km <keymap_name> -e CONVERT_TO=rp2040_ce
@@ -19,7 +21,7 @@ This creates a `.uf2` file inside the `qmk_firmware` directory.
 
 Unplug the keyboard, separate the two halves (don't **ever** do this when the keyboard is plugged in!), then connect one half to the computer.
 
-In Windows, open **My Computer** in the file explorer. Press the `RESET` button twice in quick succession on your keyboard half. You should see a new item appear in My Computer.
+In Windows, open **This PC** (aka My Computer) in the file explorer. Press the `RESET` button twice in quick succession on your keyboard half. You should see a new item appear in This PC.
 
 Paste the `.uf2` file into that item and the device will get flashed.
 
@@ -44,7 +46,7 @@ Future functionality/layers, to be added once I gain more experience:
 - Fn-style keys, incl. brightness, volume, play/pause/skip
 - Caps lock, num lock
 - Home, end, pg up/down
-- Windows key (`KC_LGUI`)
+- Windows key (**ths is configured in the Fn layer, but the right-hand version isn't doing anything**)
 - no OLED backlighting (or, perhaps, only by keyboard activation, through a colour combo.) If any, then just white
 - clicking shortcuts (e.g. when you tap a certain key X times, it locks in a keyboard layer)
 - hash key, backslash, vertical bar
