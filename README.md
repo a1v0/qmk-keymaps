@@ -33,7 +33,8 @@ This is my default keymap.
 
 ### Layers
 
-1. QWERTY
+- (Lower) Functions and Windows buttons
+- (Main) QWERTY
 
 Future functionality/layers, to be added once I gain more experience:
 
