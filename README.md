@@ -2,10 +2,10 @@
 
 This repo contains keymaps for my Lily58 keyboard, in the format required by [QMK](https://qmk.fm/).
 
-| Folder | Description |
-| ------ | ----------- |
+| Folder    | Description |
+| --------- | ----------- |
 | `default` | Contains copies of un-edited keymaps that are shipped with QMK, for reference and as a baseline. |
-| `a1v0` | Contains my standard, everyday keymap. |
+| `a1v0`    | Contains my standard, everyday keymap. |
 
 ## Flashing instructions
 
@@ -37,6 +37,7 @@ This is my default keymap.
 
 - (Lower) Functions and Windows buttons
 - (Main) QWERTY
+- (Upper) HJKL (among other things that I haven't yet customised)
 
 Future functionality/layers, to be added once I gain more experience:
 
