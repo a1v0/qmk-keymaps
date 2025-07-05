@@ -42,8 +42,8 @@ This is my default keymap.
 Future functionality/layers, to be added once I gain more experience:
 
 - number pad
-- Umlauts and other non-English characters
-- right-click, regular click
+- Umlauts and other non-English characters (or perhaps I could create some sort of tapdance, e.g. a+; = ä and Shift+A+: = &Auml;, s+z = ß etc.)
+- right-click, regular click, scroll and other mouse stuff
 - Fn-style keys, incl. brightness, volume, play/pause/skip, perhaps on their own layer
 - Caps lock, num lock
 - Home, end, pg up/down
