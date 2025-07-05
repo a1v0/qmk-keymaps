@@ -48,6 +48,10 @@ Future functionality/layers, to be added once I gain more experience:
 - Caps lock, num lock
 - Home, end, pg up/down
 - Windows key (**ths is configured in the Fn layer, but the right-hand version isn't doing anything**)
-- no OLED backlighting (or, perhaps, only by keyboard activation, through a colour combo.) If any, then just white
 - clicking shortcuts (e.g. when you tap a certain key X times, it locks in a keyboard layer)
-- hash key, backslash, vertical bar
+- hash key, backslash, vertical bar, backtick
+- ability to do Windows-[direction] for window snapping. This is a little awkward because it requires unusual stretching of fingers. As such, perhaps a tapdance solution might be better here, e.g. double-tapping Windows holds Windows and moves to next layer
+- since certain combinations like Shift+B are awkward, experiment with a tapdance where holding Space results in Shift
+- a1v0 logo to be displayed instead of Lily58
+- find a nice use for other screen
+- perhaps create shortcuts to display certain things on screen, e.g. different pixel art
