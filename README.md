@@ -44,7 +44,7 @@ Future functionality/layers, to be added once I gain more experience:
 - number pad
 - Umlauts and other non-English characters
 - right-click, regular click
-- Fn-style keys, incl. brightness, volume, play/pause/skip
+- Fn-style keys, incl. brightness, volume, play/pause/skip, perhaps on their own layer
 - Caps lock, num lock
 - Home, end, pg up/down
 - Windows key (**ths is configured in the Fn layer, but the right-hand version isn't doing anything**)
@@ -55,3 +55,4 @@ Future functionality/layers, to be added once I gain more experience:
 - a1v0 logo to be displayed instead of Lily58
 - find a nice use for other screen
 - perhaps create shortcuts to display certain things on screen, e.g. different pixel art
+- tapdances to lock in certain layers, using, perhaps, double-ESC to revert to main layer
