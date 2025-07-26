@@ -41,18 +41,18 @@ This is my default keymap.
 
 Future functionality/layers, to be added once I gain more experience:
 
-- number pad
-- Umlauts and other non-English characters (or perhaps I could create some sort of tapdance, e.g. a+; = ä and Shift+A+: = &Auml;, s+z = ß etc.)
-- right-click, regular click, scroll and other mouse stuff
+- add right-shift to empty slot
+- consider moving HJKL to the right by on key, to make holding of the layer shift button easier when using the arrpws. (This would hopefully also make window snapping easier, but I'm not sure)
+- number pad (ideally I'd be able to use this with some sort of num-lock key, _and_ with a hold-down layer shift).
+- Umlauts and other non-English characters
+- right-click, regular click
 - Fn-style keys, incl. brightness, volume, play/pause/skip, perhaps on their own layer
-- Caps lock, num lock
-- Home, end, pg up/down
-- Windows key (**ths is configured in the Fn layer, but the right-hand version isn't doing anything**)
+- caps lock, num lock
+- home, end, pg up/down
+- perhaps some sort of dedicated F5 key, since this is a fairly common on and the current F5 combination is not so good
 - clicking shortcuts (e.g. when you tap a certain key X times, it locks in a keyboard layer)
 - hash key, backslash, vertical bar, backtick
-- ability to do Windows-[direction] for window snapping. This is a little awkward because it requires unusual stretching of fingers. As such, perhaps a tapdance solution might be better here, e.g. double-tapping Windows holds Windows and moves to next layer
-- since certain combinations like Shift+B are awkward, experiment with a tapdance where holding Space results in Shift
-- a1v0 logo to be displayed instead of Lily58
-- find a nice use for other screen
+- improvements to a1v0 logo (it's mostly fine but could perhaps do with a little better image quality)
+- find a nice use for other screen (caps lock status, current layer)
 - perhaps create shortcuts to display certain things on screen, e.g. different pixel art
 - tapdances to lock in certain layers, using, perhaps, double-ESC to revert to main layer
