@@ -50,6 +50,8 @@ Future functionality/layers, to be added once I gain more experience (intermixed
 - home, end, pg up/down
 - perhaps some sort of dedicated F5 key, since this is a fairly common on and the current F5 combination is not so good
 - hash key, backslash, vertical bar, backtick
+  - backtick can be some modified version of the apostrophe
+  - backlash can be some modified version of the forward slash. Ditto vertical bar?
 - improvements to a1v0 logo (it's mostly fine but could perhaps do with a little better image quality)
 - find a nice use for other screen (caps lock status, current layer)
 - perhaps create shortcuts to display certain things on screen, e.g. different pixel art
