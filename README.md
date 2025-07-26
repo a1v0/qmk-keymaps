@@ -35,24 +35,25 @@ This is my default keymap.
 
 ### Layers
 
-- (Lower) Functions and Windows buttons
-- (Main) QWERTY
-- (Upper) HJKL (among other things that I haven't yet customised)
+- (Lower) F-keys and left Windows button
+- (Main) QWERTY (all keys do what's written on the keycap)
+- (Upper) HJKL
 
-Future functionality/layers, to be added once I gain more experience:
+Future functionality/layers, to be added once I gain more experience (intermixed with to-dos):
 
-- add right-shift to empty slot
-- consider moving HJKL to the right by on key, to make holding of the layer shift button easier when using the arrpws. (This would hopefully also make window snapping easier, but I'm not sure)
+- consider moving HJKL to the right by on key (i.e. JKL'), to make holding of the layer shift button easier when using the arrows. (This would hopefully also make window snapping easier, but I'm not sure)
 - number pad (ideally I'd be able to use this with some sort of num-lock key, _and_ with a hold-down layer shift).
-- Umlauts and other non-English characters
+- Umlauts and other non-English characters (via [Combos](https://docs.qmk.fm/features/combo))
 - right-click, regular click
 - Fn-style keys, incl. brightness, volume, play/pause/skip, perhaps on their own layer
 - caps lock, num lock
 - home, end, pg up/down
 - perhaps some sort of dedicated F5 key, since this is a fairly common on and the current F5 combination is not so good
-- clicking shortcuts (e.g. when you tap a certain key X times, it locks in a keyboard layer)
 - hash key, backslash, vertical bar, backtick
 - improvements to a1v0 logo (it's mostly fine but could perhaps do with a little better image quality)
 - find a nice use for other screen (caps lock status, current layer)
 - perhaps create shortcuts to display certain things on screen, e.g. different pixel art
 - tapdances to lock in certain layers, using, perhaps, double-ESC to revert to main layer
+- separate parts of code into separate files for better readability. See: <https://www.reddit.com/r/olkb/comments/1js7ozb/bloated_keymapc/>
+- try to downsize ludicrously large QMK installation, since most of it is unnecessary
+- check out these [layer ideas](https://www.reddit.com/r/MechanicalKeyboards/comments/qootbl/first_keyboard_with_layers_any_inspiration_for/) for inspiration. Here are some [best practices](https://www.reddit.com/r/KeyboardLayouts/comments/rm5ro8/layouts_layers_best_practices_inspirations_etc/)
