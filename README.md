@@ -60,3 +60,4 @@ Future functionality/layers, to be added once I gain more experience (intermixed
 - separate parts of code into separate files for better readability. See: <https://www.reddit.com/r/olkb/comments/1js7ozb/bloated_keymapc/>
 - try to downsize ludicrously large QMK installation, since most of it is unnecessary
 - check out these [layer ideas](https://www.reddit.com/r/MechanicalKeyboards/comments/qootbl/first_keyboard_with_layers_any_inspiration_for/) for inspiration. Here are some [best practices](https://www.reddit.com/r/KeyboardLayouts/comments/rm5ro8/layouts_layers_best_practices_inspirations_etc/)
+- just as an experiment, perhaps make a shortcut that converts some key combination into "ServiceNow", which I find awkward to type
