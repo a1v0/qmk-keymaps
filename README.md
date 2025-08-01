@@ -41,7 +41,6 @@ This is my default keymap.
 
 Future functionality/layers, to be added once I gain more experience (intermixed with to-dos):
 
-- consider moving HJKL to the right by on key (i.e. JKL'), to make holding of the layer shift button easier when using the arrows. (This would hopefully also make window snapping easier, but I'm not sure)
 - consider adding a key binding for ctrl and shift in the home row on either side, that only activate when you hold one of SDFG or HJKL. This reduces finger movement for shift, and provides and additional ctrl key. Could also be used for alt (would need to set the keys for the HJKL layer, too). This oughtn't affect anything to do with diacritics, because none of the keys I'd use typically get diacritics (though it could impact ß if I use S)
 - number pad (ideally I'd be able to use this with some sort of num-lock key, _and_ with a hold-down layer shift).
 - Umlauts and other non-English characters (via [Combos](https://docs.qmk.fm/features/combo))
@@ -61,3 +60,4 @@ Future functionality/layers, to be added once I gain more experience (intermixed
 - try to downsize ludicrously large QMK installation, since most of it is unnecessary
 - check out these [layer ideas](https://www.reddit.com/r/MechanicalKeyboards/comments/qootbl/first_keyboard_with_layers_any_inspiration_for/) for inspiration. Here are some [best practices](https://www.reddit.com/r/KeyboardLayouts/comments/rm5ro8/layouts_layers_best_practices_inspirations_etc/)
 - just as an experiment, perhaps make a shortcut that converts some key combination into "ServiceNow", which I find awkward to type
+- potential enhancement to HJKL layer: the problem with the "JKL'" arroe keys concept is that it requires my whole hand to shift a position to the right. That's not that good (though it's also not terrible). As a future enhancement, perhaps the HJKL layer could be reached by holding down the Enter key, rather than the normal down-layer key (double-tap and hold Enter to achieve a sustained carriage return)
