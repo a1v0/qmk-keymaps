@@ -41,9 +41,10 @@ This is my default keymap.
 
 Future functionality/layers, to be added once I gain more experience (intermixed with to-dos):
 
-1. separate parts of code into separate files for better readability. See: <https://www.reddit.com/r/olkb/comments/1js7ozb/bloated_keymapc/>
-2. improvements to a1v0 logo (it's mostly fine but could perhaps do with a little better image quality)
-3. consider adding a key binding for ctrl and shift in the home row on either side, that only activate when you hold one of SDFG or HJKL. This reduces finger movement for shift, and provides and additional ctrl key. Could also be used for alt (would need to set the keys for the HJKL layer, too). This oughtn't affect anything to do with diacritics, because none of the keys I'd use typically get diacritics (though it could impact ß if I use S)
+1. improvements to a1v0 logo (it's mostly fine but could perhaps do with a little better image quality)
+2. consider adding a key binding for ctrl and shift in the home row on either side, that only activate when you hold one of SDFG or HJKL. This reduces finger movement for shift, and provides and additional ctrl key. Could also be used for alt (would need to set the keys for the HJKL layer, too). This oughtn't affect anything to do with diacritics, because none of the keys I'd use typically get diacritics (though it could impact ß if I use S)
+3. separate parts of code into separate files for better readability. See: <https://www.reddit.com/r/olkb/comments/1js7ozb/bloated_keymapc/>
+    - This doesn't actually do quite what I want. I don't really need a userspace. I'd simply like to clean up my code. I'd need, I think, to use some combination of `.c` and `.h` files to achieve this, but can't find a good guide. Will probably need to read up on how C works, more generally.
 4. number pad (ideally I'd be able to use this with some sort of num-lock key, _and_ with a hold-down layer shift). this could be achieved by double-tapping the right-hand layer shift key, which functions as a type of num lock by locking in the layer (which can be released by tapping the layer shift again, perhaps). Could this also be done in such a way as to enable Alt codes? If so, need to ensure that it doesn't cause peculiar behaviour if the actual num-lock functionality is/isn't enabled.
 5. Umlauts and other non-English characters (via [Combos](https://docs.qmk.fm/features/combo))
 6. right-click, regular click
