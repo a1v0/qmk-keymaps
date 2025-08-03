@@ -11,7 +11,6 @@ RGBLIGHT_ENABLE 	= no	# Enable WS2812 RGB underlight.
 SWAP_HANDS_ENABLE 	= no	# Enable one-hand typing
 OLED_ENABLE 		= yes	# OLED display
 COMBO_ENABLE        = yes   # Enable key combos (https://docs.qmk.fm/features/combo)
-SEND_STRING_ENABLE 	= yes   # Enable ability to send strings
 
 # If you want to change the display of OLED, you need to change here
 SRC +=  ./lib/rgb_state_reader.c \
