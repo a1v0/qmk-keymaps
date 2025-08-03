@@ -199,3 +199,86 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   }
   return true;
 }
+
+enum combo_events {
+	UMLAUT_U_LOWER,
+	UMLAUT_U_UPPER,
+};
+
+const uint16_t PROGMEM umlaut_u[] = {KC_U, KC_SCLN, COMBO_END};
+const uint16_t PROGMEM umlaut_u_caps[] = {KC_LSFT, KC_U, KC_SCLN, COMBO_END};
+
+combo_t key_combos[] = {
+	[UMLAUT_U_LOWER] = COMBO_ACTION(umlaut_u),
+	[UMLAUT_U_UPPER] = COMBO_ACTION(umlaut_u_caps),
+};
+
+void process_combo_event(uint16_t combo_index, bool pressed) {
+	switch(combo_index) {
+		case UMLAUT_U_LOWER:
+			if (pressed) {
+				// 
+				// TODO:
+				// create a method to do the following that takes an alt code as input:
+				// if alt not currently pressed, send keydown
+				// if num lock not currently on, set numlock
+				// tap each digit of the alt code
+				// release alt
+				// undo num lock
+				// 
+				// 
+				// this can provide inspiration: https://gist.github.com/itspngu/9159f06153b440a754b33c6d65c5f302
+				// 
+				// 
+				// 
+				// 
+				// 
+				// 
+				static uint8_t lalt_mask;
+				lalt_mask = keyboard_report->mods & KC_LALT;
+
+				bool numLockOn = host_keyboard_led_state().num_lock;
+				
+				if (!lalt_mask) {
+					register_code(KC_LALT);
+					// send_keyboard_report();
+				}
+				
+				if (!numLockOn) {
+					// 
+					// TODO:
+					// we're successfully entering this block if num lock is off, but
+					// the code doesn't turn num lock on. I wonder if the keyboard report stuff
+					// makes a difference, or if there's some sort of press-and-hold method, rather
+					// than the tapping one.
+					//
+					// Perhaps there's some sort of method akin to host_keyboard_led_state() wherein we can set the state
+					// 
+					register_code(KC_LNUM);
+					// send_keyboard_report();
+				}
+				
+				tap_code16(KC_KP_1);
+				tap_code16(KC_KP_2);
+				tap_code16(KC_KP_9);
+
+				if (!lalt_mask) {
+					unregister_code(KC_LALT);
+					// send_keyboard_report();
+				}
+				
+				if (!numLockOn) {
+					register_code(KC_LNUM);
+					// send_keyboard_report();
+				}
+			}
+      		break;
+		case UMLAUT_U_UPPER:
+			if (pressed) {
+			
+			}
+			break;
+		default:
+			break;
+	}
+}
