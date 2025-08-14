@@ -217,69 +217,77 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
 	switch (combo_index) {
 		case UMLAUT_U_LOWER:
 			if (pressed) {
-				// 
-				// TODO:
-				// create a method to do the following that takes an alt code as input:
-				// if alt not currently pressed, send keydown
-				// if num lock not currently on, set numlock
-				// tap each digit of the alt code
-				// release alt
-				// undo num lock
-				// 
-				// 
-				// this can provide inspiration: https://gist.github.com/itspngu/9159f06153b440a754b33c6d65c5f302
-				// 
-				// 
-				// 
-				// 
-				// 
-				// 
-				static uint8_t lalt_mask;
-				lalt_mask = keyboard_report -> mods & KC_LALT;
+// Method uses Windows-1252 key codes: https://en.wikipedia.org/wiki/Windows-1252
+// If code has a leading 0, omit it.
+void enter_alt_code_combination(uint16_t alt_code) {
+	static uint8_t lalt_mask;
+	lalt_mask = keyboard_report -> mods & KC_LALT;
+	bool numLockOn = host_keyboard_leds() & (1 << USB_LED_NUM_LOCK); // From: https://github.com/qmk/qmk_firmware/issues/2164
+	host_keyboard_led_state().num_lock;
+	if (!lalt_mask) {
+		register_code(KC_LALT);
+	}
+	if (!numLockOn) {
+		// 
+		// TODO:
+		// we're successfully entering this block if num lock is off, but
+		// the code doesn't turn num lock on. I wonder if the keyboard report stuff
+		// makes a difference, or if there's some sort of press-and-hold method, rather
+		// than the tapping one.
+		//
+		// Perhaps there's some sort of method akin to host_keyboard_led_state() wherein we can set the state
+		// 
+		register_code(KC_NUM_LOCK);
+	}
 
-				bool numLockOn = host_keyboard_leds() & (1 << USB_LED_NUM_LOCK); // From: https://github.com/qmk/qmk_firmware/issues/2164
-
-				host_keyboard_led_state().num_lock;
-
-				if (!lalt_mask) {
-					register_code(KC_LALT);
-					// send_keyboard_report();
-				}
-
-				if (!numLockOn) {
-					// 
-					// TODO:
-					// we're successfully entering this block if num lock is off, but
-					// the code doesn't turn num lock on. I wonder if the keyboard report stuff
-					// makes a difference, or if there's some sort of press-and-hold method, rather
-					// than the tapping one.
-					//
-					// Perhaps there's some sort of method akin to host_keyboard_led_state() wherein we can set the state
-					// 
-					register_code(KC_NUM_LOCK);
-				}
-
+	// Adapted from https://gist.github.com/itspngu/9159f06153b440a754b33c6d65c5f302
+	// Split up the alt code into its constituent digits
+	static uint16_t alt_digits[4];
+	
+	alt_digits[0] = alt_code / 1000;
+	alt_digits[1] = alt_code / 100 - alt_digits[0] * 100;
+	alt_digits[2] = alt_code / 10 - alt_digits[0] * 1000 - alt_digits[1] * 10;
+	alt_digits[3] = alt_code - alt_digits[0] * 1000 - alt_digits[1] * 100 - alt_digits[2] * 10;
+	
+	for (uint8_t i = 0; i <= 3; ++i) {
+		switch(alt_digits[i]) {
+			case 0:
+				tap_code16(KC_KP_0);
+				break;
+			case 1:
 				tap_code16(KC_KP_1);
+				break;
+			case 2:
 				tap_code16(KC_KP_2);
+				break;
+			case 3:
+				tap_code16(KC_KP_3);
+				break;
+			case 4:
+				tap_code16(KC_KP_4);
+				break;
+			case 5:
+				tap_code16(KC_KP_5);
+				break;
+			case 6:
+				tap_code16(KC_KP_6);
+				break;
+			case 7:
+				tap_code16(KC_KP_7);
+				break;
+			case 8:
+				tap_code16(KC_KP_8);
+				break;
+			case 9:
 				tap_code16(KC_KP_9);
+				break;
+		}
+	}
 
-				if (!lalt_mask) {
-					unregister_code(KC_LALT);
-				}
-
-				if (!numLockOn) {
-					unregister_code(KC_NUM_LOCK);
-				}
-			}
-			break;
-
-		case UMLAUT_U_UPPER:
-			if (pressed) {
-
-			}
-			break;
-
-		default:
-			break;
+	if (!lalt_mask) {
+		unregister_code(KC_LALT);
+	}
+	if (!numLockOn) {
+		unregister_code(KC_NUM_LOCK);
 	}
 }
