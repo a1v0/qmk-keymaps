@@ -214,6 +214,7 @@ combo_t key_combos[] = {
 };
 
 void process_combo_event(uint16_t combo_index, bool pressed) {
+	if (!pressed) return;
 	switch (combo_index) {
 		case UMLAUT_U_LOWER:
 			if (pressed) {
