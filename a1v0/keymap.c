@@ -253,6 +253,17 @@ void enter_alt_code_combination(uint16_t alt_code) {
 		register_code(KC_NUM_LOCK);
 	}
 
+	// TODO:
+	// 
+	// 
+	// this switch can be farmed out into its own method to help declutter
+	// 
+	// 
+	// 
+	// 
+	// 
+	// 
+
 	// Adapted from https://gist.github.com/itspngu/9159f06153b440a754b33c6d65c5f302
 	// Split up the alt code into its constituent digits
 	static uint16_t alt_digits[4];
@@ -300,7 +311,7 @@ void enter_alt_code_combination(uint16_t alt_code) {
 	if (!lalt_mask) {
 		unregister_code(KC_LALT);
 	}
-	
+
 	if (!numLockOn) {
 		unregister_code(KC_NUM_LOCK);
 	}
