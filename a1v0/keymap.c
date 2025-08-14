@@ -217,7 +217,16 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
 	if (!pressed) return;
 	switch (combo_index) {
 		case UMLAUT_U_LOWER:
-			if (pressed) {
+			enter_alt_code_combination(252);
+			break;
+		case UMLAUT_U_UPPER:
+			enter_alt_code_combination(220);
+			break;
+		default:
+			break;
+	}
+}
+
 // Method uses Windows-1252 key codes: https://en.wikipedia.org/wiki/Windows-1252
 // If code has a leading 0, omit it.
 void enter_alt_code_combination(uint16_t alt_code) {
