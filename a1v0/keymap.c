@@ -228,15 +228,18 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
 }
 
 // Method uses Windows-1252 key codes: https://en.wikipedia.org/wiki/Windows-1252
-// If code has a leading 0, omit it.
+// Adapted from https://gist.github.com/itspngu/9159f06153b440a754b33c6d65c5f302
+// If alt code has a leading 0, omit it.
 void enter_alt_code_combination(uint16_t alt_code) {
 	static uint8_t lalt_mask;
 	lalt_mask = keyboard_report -> mods & KC_LALT;
+
 	bool numLockOn = host_keyboard_leds() & (1 << USB_LED_NUM_LOCK); // From: https://github.com/qmk/qmk_firmware/issues/2164
-	host_keyboard_led_state().num_lock;
+	
 	if (!lalt_mask) {
 		register_code(KC_LALT);
 	}
+	
 	if (!numLockOn) {
 		// 
 		// TODO:
@@ -297,6 +300,7 @@ void enter_alt_code_combination(uint16_t alt_code) {
 	if (!lalt_mask) {
 		unregister_code(KC_LALT);
 	}
+	
 	if (!numLockOn) {
 		unregister_code(KC_NUM_LOCK);
 	}
