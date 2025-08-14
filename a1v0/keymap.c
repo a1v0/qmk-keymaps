@@ -214,7 +214,7 @@ combo_t key_combos[] = {
 };
 
 void process_combo_event(uint16_t combo_index, bool pressed) {
-	switch(combo_index) {
+	switch (combo_index) {
 		case UMLAUT_U_LOWER:
 			if (pressed) {
 				// 
@@ -235,15 +235,17 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
 				// 
 				// 
 				static uint8_t lalt_mask;
-				lalt_mask = keyboard_report->mods & KC_LALT;
+				lalt_mask = keyboard_report -> mods & KC_LALT;
 
-				bool numLockOn = host_keyboard_led_state().num_lock;
-				
+				bool numLockOn = host_keyboard_leds() & (1 << USB_LED_NUM_LOCK); // From: https://github.com/qmk/qmk_firmware/issues/2164
+
+				host_keyboard_led_state().num_lock;
+
 				if (!lalt_mask) {
 					register_code(KC_LALT);
 					// send_keyboard_report();
 				}
-				
+
 				if (!numLockOn) {
 					// 
 					// TODO:
@@ -254,30 +256,29 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
 					//
 					// Perhaps there's some sort of method akin to host_keyboard_led_state() wherein we can set the state
 					// 
-					register_code(KC_LNUM);
-					// send_keyboard_report();
+					register_code(KC_NUM_LOCK);
 				}
-				
+
 				tap_code16(KC_KP_1);
 				tap_code16(KC_KP_2);
 				tap_code16(KC_KP_9);
 
 				if (!lalt_mask) {
 					unregister_code(KC_LALT);
-					// send_keyboard_report();
 				}
-				
+
 				if (!numLockOn) {
-					register_code(KC_LNUM);
-					// send_keyboard_report();
+					unregister_code(KC_NUM_LOCK);
 				}
-			}
-      		break;
-		case UMLAUT_U_UPPER:
-			if (pressed) {
-			
 			}
 			break;
+
+		case UMLAUT_U_UPPER:
+			if (pressed) {
+
+			}
+			break;
+
 		default:
 			break;
 	}
