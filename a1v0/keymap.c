@@ -4,6 +4,11 @@
 
 #include QMK_KEYBOARD_H
 
+// Bit numbers for each LED. When checking whether, say, caps lock is on, it checks bit 1
+#define USB_LED_NUM_LOCK 0
+#define USB_LED_CAPS_LOCK 1
+#define USB_LED_SCROLL_LOCK 2
+
 enum layer_number {
   _QWERTY = 0,
   _LOWER,
