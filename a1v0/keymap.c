@@ -130,6 +130,7 @@ const char *read_logo(void);
 void set_keylog(uint16_t keycode, keyrecord_t *record);
 const char *read_keylog(void);
 const char *read_keylogs(void);
+void enter_alt_code_combination(uint16_t alt_code);
 
 // const char *read_mode_icon(bool swap);
 // const char *read_host_led_state(void);
