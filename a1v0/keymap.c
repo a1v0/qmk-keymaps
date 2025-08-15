@@ -120,6 +120,7 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
 	if (!is_keyboard_master()){
     	return OLED_ROTATION_270; // flips display by 270 degrees
 	}
+
   	return rotation;
 }
 
@@ -191,13 +192,13 @@ bool oled_task_user(void) {
 #endif // OLED_ENABLE
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  if (record->event.pressed) {
-#ifdef OLED_ENABLE
-    set_keylog(keycode, record);
-#endif
-    // set_timelog();
-  }
-  return true;
+	if (record -> event.pressed) {
+		#ifdef OLED_ENABLE
+    		set_keylog(keycode, record);
+		#endif
+    	// set_timelog();
+	}
+	return true;
 }
 
 enum combo_events {
@@ -253,10 +254,10 @@ void enter_alt_code_combination(uint16_t alt_code) {
 		register_code(KC_NUM_LOCK);
 	}
 
+	// 
 	// TODO:
-	// 
-	// 
 	// this switch can be farmed out into its own method to help declutter
+	// 
 	// 
 	// 
 	// 
