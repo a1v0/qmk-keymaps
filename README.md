@@ -42,7 +42,7 @@ This is my default keymap.
 Future functionality/layers, to be added once I gain more experience (intermixed with to-dos):
 
 1. Umlauts and other non-English characters (via [Combos](https://docs.qmk.fm/features/combo)). The problem is that, currently, the combos require tapping of both keys in very rapid succession, rather than permitting some sort of press-and-hold logic. Is this what modifier keys are for?
-2. Replace layer shift keys with mod-tap of the thumb keys (hold = layer, tap = thumb, double-tap-hold = hold thumb). Then move HJKL back to where they were previously
+2. Replace layer shift keys with mod-tap of the thumb keys (hold = layer, tap = thumb, double-tap-hold = hold thumb). Then move HJKL back to where they were previously. See <https://docs.qmk.fm/tap_hold#quick-tap-term> for more info
 3. consider adding a key binding for ctrl and shift in the home row on either side, that only activate when you hold one of SDFG or HJKL. This reduces finger movement for shift, and provides and additional ctrl key. Could also be used for alt (would need to set the keys for the HJKL layer, too). This oughtn't affect anything to do with diacritics, because none of the keys I'd use typically get diacritics (though it could impact ß if I use S)
 4. improvements to a1v0 logo (it's mostly fine but could perhaps do with a little better image quality)
     - this is annoying because I no longer have the original images I used to generate the current byte array. Really, I'd just like to tweak a couple of pixels. Solution: figure out how the byte array works and, if straightforward enough, tweak culprit pixels (if I'm unlucky, this'll use some sort of run-length compression that'll be hard to diagnose)
