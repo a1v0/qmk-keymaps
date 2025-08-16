@@ -212,8 +212,18 @@ enum combo_events {
 	UMLAUT_U_UPPER,
 };
 
-const uint16_t PROGMEM umlaut_u[] = {KC_U, KC_SCLN, COMBO_END};
-const uint16_t PROGMEM umlaut_u_caps[] = {KC_LSFT, KC_U, KC_SCLN, COMBO_END};
+const uint16_t PROGMEM umlaut_u[] = { KC_U, KC_SCLN, COMBO_END };
+//  
+// TODO: this doesn't work
+// need a way to send this combo while holding shift, ideally 
+// feels partially like the system thinks the combo is some sort of keyboard shortcut, which is annoying
+// in any case, perhaps it's a moot point, because it feels like combos aren't the correct approach for this issue
+// mod tap is perhaps the more correct version, though I'm not sure how to implement that, yet
+// 
+// 
+// 
+// 
+const uint16_t PROGMEM umlaut_u_caps[] = { LSFT(KC_U), LSFT(KC_SCLN), COMBO_END };
 
 combo_t key_combos[] = {
 	[UMLAUT_U_LOWER] = COMBO_ACTION(umlaut_u),
