@@ -248,16 +248,7 @@ void enter_alt_code_combination(uint16_t alt_code) {
 	}
 	
 	if (!numLockOn) {
-		// 
-		// TODO:
-		// we're successfully entering this block if num lock is off, but
-		// the code doesn't turn num lock on. I wonder if the keyboard report stuff
-		// makes a difference, or if there's some sort of press-and-hold method, rather
-		// than the tapping one.
-		//
-		// Perhaps there's some sort of method akin to host_keyboard_led_state() wherein we can set the state
-		// 
-		register_code(KC_NUM_LOCK);
+		tap_code16(KC_NUM_LOCK);
 	}
 
 	// 
@@ -320,6 +311,6 @@ void enter_alt_code_combination(uint16_t alt_code) {
 	}
 
 	if (!numLockOn) {
-		unregister_code(KC_NUM_LOCK);
+		tap_code16(KC_NUM_LOCK);
 	}
 }
