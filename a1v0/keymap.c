@@ -208,6 +208,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 }
 
 enum combo_events {
+	UMLAUT_A_LOWER,
+	UMLAUT_O_LOWER,
 	UMLAUT_U_LOWER,
 	UMLAUT_U_UPPER,
 };
