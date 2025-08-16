@@ -4,6 +4,11 @@
 
 #include QMK_KEYBOARD_H
 
+// Bit numbers for each LED. When checking whether, say, caps lock is on, it checks bit 1
+#define USB_LED_NUM_LOCK 0
+#define USB_LED_CAPS_LOCK 1
+#define USB_LED_SCROLL_LOCK 2
+
 enum layer_number {
   _QWERTY = 0,
   _LOWER,
@@ -120,6 +125,7 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
 	if (!is_keyboard_master()){
     	return OLED_ROTATION_270; // flips display by 270 degrees
 	}
+
   	return rotation;
 }
 
@@ -129,6 +135,7 @@ const char *read_logo(void);
 void set_keylog(uint16_t keycode, keyrecord_t *record);
 const char *read_keylog(void);
 const char *read_keylogs(void);
+void enter_alt_code_combination(uint16_t alt_code);
 
 // const char *read_mode_icon(bool swap);
 // const char *read_host_led_state(void);
@@ -191,11 +198,129 @@ bool oled_task_user(void) {
 #endif // OLED_ENABLE
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  if (record->event.pressed) {
-#ifdef OLED_ENABLE
-    set_keylog(keycode, record);
-#endif
-    // set_timelog();
-  }
-  return true;
+	if (record -> event.pressed) {
+		#ifdef OLED_ENABLE
+    		set_keylog(keycode, record);
+		#endif
+    	// set_timelog();
+	}
+	return true;
+}
+
+enum combo_events {
+	UMLAUT_U_LOWER,
+	UMLAUT_U_UPPER,
+};
+
+const uint16_t PROGMEM umlaut_u[] = { KC_U, KC_SCLN, COMBO_END };
+//  
+// TODO: this doesn't work
+// need a way to send this combo while holding shift, ideally 
+// feels partially like the system thinks the combo is some sort of keyboard shortcut, which is annoying
+// in any case, perhaps it's a moot point, because it feels like combos aren't the correct approach for this issue
+// mod tap is perhaps the more correct version, though I'm not sure how to implement that, yet
+// 
+// 
+// 
+// 
+const uint16_t PROGMEM umlaut_u_caps[] = { LSFT(KC_U), LSFT(KC_SCLN), COMBO_END };
+
+combo_t key_combos[] = {
+	[UMLAUT_U_LOWER] = COMBO_ACTION(umlaut_u),
+	[UMLAUT_U_UPPER] = COMBO_ACTION(umlaut_u_caps),
+};
+
+void process_combo_event(uint16_t combo_index, bool pressed) {
+	if (!pressed) return;
+	switch (combo_index) {
+		case UMLAUT_U_LOWER:
+			enter_alt_code_combination(252);
+			break;
+		case UMLAUT_U_UPPER:
+			enter_alt_code_combination(220);
+			break;
+		default:
+			break;
+	}
+}
+
+// Method uses Windows-1252 key codes: https://en.wikipedia.org/wiki/Windows-1252
+// Adapted from https://gist.github.com/itspngu/9159f06153b440a754b33c6d65c5f302
+// If alt code has a leading 0, omit it.
+void enter_alt_code_combination(uint16_t alt_code) {
+	static uint8_t lalt_mask;
+	lalt_mask = keyboard_report -> mods & KC_LALT;
+
+	bool numLockOn = host_keyboard_leds() & (1 << USB_LED_NUM_LOCK); // From: https://github.com/qmk/qmk_firmware/issues/2164
+	
+	if (!lalt_mask) {
+		register_code(KC_LALT);
+	}
+	
+	if (!numLockOn) {
+		tap_code16(KC_NUM_LOCK);
+	}
+
+	// 
+	// TODO:
+	// this switch can be farmed out into its own method to help declutter
+	// 
+	// 
+	// 
+	// 
+	// 
+	// 
+	// 
+
+	// Adapted from https://gist.github.com/itspngu/9159f06153b440a754b33c6d65c5f302
+	// Split up the alt code into its constituent digits
+	static uint16_t alt_digits[4];
+	
+	alt_digits[0] = alt_code / 1000;
+	alt_digits[1] = alt_code / 100 - alt_digits[0] * 100;
+	alt_digits[2] = alt_code / 10 - alt_digits[0] * 1000 - alt_digits[1] * 10;
+	alt_digits[3] = alt_code - alt_digits[0] * 1000 - alt_digits[1] * 100 - alt_digits[2] * 10;
+	
+	for (uint8_t i = 0; i <= 3; ++i) {
+		switch(alt_digits[i]) {
+			case 0:
+				tap_code16(KC_KP_0);
+				break;
+			case 1:
+				tap_code16(KC_KP_1);
+				break;
+			case 2:
+				tap_code16(KC_KP_2);
+				break;
+			case 3:
+				tap_code16(KC_KP_3);
+				break;
+			case 4:
+				tap_code16(KC_KP_4);
+				break;
+			case 5:
+				tap_code16(KC_KP_5);
+				break;
+			case 6:
+				tap_code16(KC_KP_6);
+				break;
+			case 7:
+				tap_code16(KC_KP_7);
+				break;
+			case 8:
+				tap_code16(KC_KP_8);
+				break;
+			case 9:
+				tap_code16(KC_KP_9);
+				break;
+		}
+	}
+
+	if (!lalt_mask) {
+		unregister_code(KC_LALT);
+	}
+
+	if (!numLockOn) {
+		tap_code16(KC_NUM_LOCK);
+	}
 }
