@@ -212,6 +212,8 @@ enum combo_events {
 	UMLAUT_U_UPPER,
 };
 
+const uint16_t PROGMEM umlaut_a[] = { KC_A, KC_SCLN, COMBO_END };
+const uint16_t PROGMEM umlaut_o[] = { KC_O, KC_SCLN, COMBO_END };
 const uint16_t PROGMEM umlaut_u[] = { KC_U, KC_SCLN, COMBO_END };
 //  
 // TODO: this doesn't work
@@ -226,6 +228,8 @@ const uint16_t PROGMEM umlaut_u[] = { KC_U, KC_SCLN, COMBO_END };
 const uint16_t PROGMEM umlaut_u_caps[] = { LSFT(KC_U), LSFT(KC_SCLN), COMBO_END };
 
 combo_t key_combos[] = {
+	[UMLAUT_A_LOWER] = COMBO_ACTION(umlaut_a),
+	[UMLAUT_O_LOWER] = COMBO_ACTION(umlaut_o),
 	[UMLAUT_U_LOWER] = COMBO_ACTION(umlaut_u),
 	[UMLAUT_U_UPPER] = COMBO_ACTION(umlaut_u_caps),
 };
@@ -233,6 +237,12 @@ combo_t key_combos[] = {
 void process_combo_event(uint16_t combo_index, bool pressed) {
 	if (!pressed) return;
 	switch (combo_index) {
+		case UMLAUT_A_LOWER:
+			enter_alt_code_combination(228);
+			break;
+		case UMLAUT_O_LOWER:
+			enter_alt_code_combination(246);
+			break;
 		case UMLAUT_U_LOWER:
 			enter_alt_code_combination(252);
 			break;
