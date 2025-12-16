@@ -50,7 +50,7 @@ Future functionality/layers, to be added once I gain more experience (intermixed
 5. separate parts of code into separate files for better readability. See: <https://www.reddit.com/r/olkb/comments/1js7ozb/bloated_keymapc/>
     - This doesn't actually do quite what I want. I don't really need a userspace. I'd simply like to clean up my code. I'd need, I think, to use some combination of `.c` and `.h` files to achieve this, but can't find a good guide. Will probably need to read up on how C works, more generally.
 6. number pad (ideally I'd be able to use this with some sort of num-lock key, _and_ with a hold-down layer shift). this could be achieved by double-tapping the right-hand layer shift key, which functions as a type of num lock by locking in the layer (which can be released by tapping the layer shift again, perhaps). Could this also be done in such a way as to enable Alt codes? If so, need to ensure that it doesn't cause peculiar behaviour if the actual num-lock functionality is/isn't enabled.
-7. right-click, regular click (while we're at it, keys to move mouse might not go totally amiss)
+7. Mouse layer (works well on Fitzy's device). The only question is how to activate it. Fitzy activates it by holding both thumb keys. I could use HJKL, and then use e.g. Y and U for left- and right-click
 8. Fn-style keys, incl. brightness, volume, play/pause/skip, perhaps on their own layer
     - How does one access a layer if not for a hold-to-change-layer button? If there's a convenient way, e.g. a combo, to add some such functionality, that'd be very useful
 9. caps lock, num lock, plus relevant messages show on the OLED screen
