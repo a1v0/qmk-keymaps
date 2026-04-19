@@ -4,6 +4,18 @@
 
 #include QMK_KEYBOARD_H
 
+// Mod-tap aliases
+#define MT_SFT_S MT(MOD_LSFT, KC_S)
+#define MT_CTL_D MT(MOD_LCTL, KC_D)
+#define MT_ALT_F MT(MOD_LALT, KC_F)
+#define MT_GUI_G MT(MOD_LGUI, KC_G)
+
+#define MT_SFT_L MT(MOD_RSFT, KC_L)
+#define MT_CTL_K MT(MOD_RCTL, KC_K)
+#define MT_ALT_J MT(MOD_RALT, KC_J)
+#define MT_GUI_H MT(MOD_RGUI, KC_H)
+
+
 // Bit numbers for each LED. When checking whether, say, caps lock is on, it checks bit 1
 #define USB_LED_NUM_LOCK 0
 #define USB_LED_CAPS_LOCK 1
