@@ -12,7 +12,7 @@
 
 #define MT_SFT_L MT(MOD_RSFT, KC_L)
 #define MT_CTL_K MT(MOD_RCTL, KC_K)
-#define MT_ALT_J MT(MOD_RALT, KC_J)
+#define MT_ALT_J MT(MOD_LALT, KC_J) // Right alt is AltGr, so I'm keeping left alt
 #define MT_GUI_H MT(MOD_RGUI, KC_H)
 
 
