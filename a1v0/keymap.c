@@ -4,6 +4,18 @@
 
 #include QMK_KEYBOARD_H
 
+// Mod-tap aliases
+#define MT_SFT_S MT(MOD_LSFT, KC_S)
+#define MT_CTL_D MT(MOD_LCTL, KC_D)
+#define MT_ALT_F MT(MOD_LALT, KC_F)
+#define MT_GUI_G MT(MOD_LGUI, KC_G)
+
+#define MT_SFT_L MT(MOD_RSFT, KC_L)
+#define MT_CTL_K MT(MOD_RCTL, KC_K)
+#define MT_ALT_J MT(MOD_LALT, KC_J) // Right alt is AltGr, so I'm keeping left alt
+#define MT_GUI_H MT(MOD_RGUI, KC_H)
+
+
 // Bit numbers for each LED. When checking whether, say, caps lock is on, it checks bit 1
 #define USB_LED_NUM_LOCK 0
 #define USB_LED_CAPS_LOCK 1
@@ -34,11 +46,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 
  [_QWERTY] = LAYOUT(
-  KC_ESC,   KC_1,   KC_2,               KC_3,    KC_4,    KC_5,                           KC_6,    KC_7,    KC_8,    KC_9,               KC_0,    KC_EQL,
-  KC_TAB,   KC_Q,   KC_W,               KC_E,    KC_R,    KC_T,                           KC_Y,    KC_U,    KC_I,    KC_O,               KC_P,    KC_MINS,
-  KC_LSFT,  KC_A,   MT(MOD_LSFT, KC_S), KC_D,    KC_F,    KC_G,                           KC_H,    KC_J,    KC_K,    MT(MOD_RSFT, KC_L), KC_QUOT, KC_SCLN,
-  KC_LCTL,  KC_Z,   KC_X,               KC_C,    KC_V,    KC_B, KC_LBRC,         KC_RBRC, KC_N,    KC_M,    KC_COMM, KC_DOT,             KC_SLSH, KC_RSFT,
-                    KC_NONUS_BACKSLASH, KC_LALT, KC_BSPC, LT(_LOWER, KC_SPC),  LT(_RAISE, KC_ENT), KC_DEL,  KC_RGUI, KC_GRAVE
+  KC_ESC,   KC_1,   KC_2,     KC_3,     KC_4,     KC_5,                           KC_6,     KC_7,     KC_8,     KC_9,     KC_0,    KC_EQL,
+  KC_TAB,   KC_Q,   KC_W,     KC_E,     KC_R,     KC_T,                           KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,    KC_MINS,
+  KC_LSFT,  KC_A,   MT_SFT_S, MT_CTL_D, MT_ALT_F, MT_GUI_G,                       MT_GUI_H, MT_ALT_J, MT_CTL_K, MT_SFT_L, KC_QUOT, KC_SCLN,
+  KC_LCTL,  KC_Z,   KC_X,     KC_C,     KC_V,     KC_B, KC_LBRC,         KC_RBRC, KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH, KC_RSFT,
+                    KC_NUBS,  KC_LALT,  KC_BSPC,  LT(_LOWER, KC_SPC),  LT(_RAISE, KC_ENT),  KC_DEL,   KC_RGUI,  KC_GRAVE
 ),
 /* LOWER
  * ,-----------------------------------------.                    ,-----------------------------------------.
