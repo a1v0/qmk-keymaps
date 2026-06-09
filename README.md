@@ -59,3 +59,9 @@ Future functionality/layers, to be added once I gain more experience (intermixed
 10. find a nice use for other OLED screen (caps lock status, current layer)
 11. check out these [layer ideas](https://www.reddit.com/r/MechanicalKeyboards/comments/qootbl/first_keyboard_with_layers_any_inspiration_for/) for inspiration. Here are some [best practices](https://www.reddit.com/r/KeyboardLayouts/comments/rm5ro8/layouts_layers_best_practices_inspirations_etc/)
 12. perhaps create shortcuts to display certain things on screen, e.g. different pixel art
+13. Idea for number pad:
+    1. implement by holding left thumb (i.e. Function-key layer)
+    2. Replace function keys with some sort of chord on the number-pad keys, i.e. left thumb+something+number (though that'd make things like Alt+F4 difficult, so maybe keep the left-hand function keys). Doing F10/F11/F12 would also be hard, so need to keep those
+    3. Implement a layer-lock thing through, e.g., left-thumb+Esc, which is unlocked through Esc
+    4. The rest is as normal: right thumb is Enter etc.
+    5. This system makes it easy to activate the layer, making it, hopefully, easy to use during the flow of normal typing, as well as during spreadsheet data-entry work (using layer lock). It probably won't get in the crosshairs of the existing parts of that layer, either
