@@ -50,7 +50,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TAB,   KC_Q,   KC_W,     KC_E,     KC_R,     KC_T,                           KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,    KC_MINS,
   KC_LSFT,  KC_A,   MT_SFT_S, MT_CTL_D, MT_ALT_F, MT_GUI_G,                       MT_GUI_H, MT_ALT_J, MT_CTL_K, MT_SFT_L, KC_QUOT, KC_SCLN,
   KC_LCTL,  KC_Z,   KC_X,     KC_C,     KC_V,     KC_B, KC_LBRC,         KC_RBRC, KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH, KC_RSFT,
-                    _______,  KC_LALT,  KC_BSPC,  LT(_LOWER, KC_SPC),  LT(_RAISE, KC_ENT),  KC_DEL,   KC_RGUI,  _______
+                    _______,  KC_LALT,  KC_BSPC,  LT(_LOWER, KC_SPC),  LT(_RAISE, KC_ENT),  KC_DEL,   _______,  _______
 ),
 /* LOWER
  * ,-----------------------------------------.                    ,-----------------------------------------.
